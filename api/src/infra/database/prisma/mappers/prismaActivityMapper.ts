@@ -29,4 +29,16 @@ export class PrismaActivityMapper {
       id,
     });
   }
+
+  static toDomainActivities(activities: ActivityRaw[]): Activity[] {
+    return activities.map(
+      (activity) =>
+        new Activity({
+          name: activity.name,
+          created_at: activity.created_at,
+          description: activity.description,
+          id: activity.id,
+        }),
+    );
+  }
 }

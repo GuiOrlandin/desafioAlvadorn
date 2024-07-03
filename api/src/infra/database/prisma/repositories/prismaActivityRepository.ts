@@ -50,9 +50,12 @@ export class PrismaActivityRepository implements ActivityRepository {
     });
   }
 
-  findAllActivity(): Promise<Activity[]> {
-    throw new Error('Method not implemented.');
+  async findAllActivity(): Promise<Activity[]> {
+    const allActivities = await this.prisma.activity.findMany();
+
+    return PrismaActivityMapper.toDomainActivities(allActivities);
   }
+
   save(activity: Activity): Promise<void> {
     throw new Error('Method not implemented.');
   }

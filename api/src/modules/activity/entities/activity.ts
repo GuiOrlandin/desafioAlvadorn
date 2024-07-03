@@ -42,4 +42,13 @@ export class Activity {
   get created_at(): Date {
     return this.props.created_at;
   }
+
+  toJSON() {
+    return {
+      id: this.props.id,
+      description: this.props.description,
+      name: this.props.name,
+      created_at: this.props.created_at,
+    };
+  }
 }
