@@ -1,6 +1,6 @@
 import { IsString, IsOptional, IsNotEmpty } from 'class-validator';
 
-export class CreateActivityBody {
+export class CreateOrEditActivityBody {
   @IsString()
   @IsNotEmpty()
   name: string;

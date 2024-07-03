@@ -56,7 +56,14 @@ export class PrismaActivityRepository implements ActivityRepository {
     return PrismaActivityMapper.toDomainActivities(allActivities);
   }
 
-  save(activity: Activity): Promise<void> {
-    throw new Error('Method not implemented.');
+  async save(activity: Activity): Promise<void> {
+    const activityRaw = PrismaActivityMapper.toPrismaActivity(activity);
+
+    await this.prisma.activity.update({
+      data: activityRaw,
+      where: {
+        id: activityRaw.id,
+      },
+    });
   }
 }

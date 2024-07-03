@@ -1,9 +1,18 @@
-import { Controller, Post, Body, Delete, Param, Get } from '@nestjs/common';
+import {
+  Controller,
+  Post,
+  Body,
+  Delete,
+  Param,
+  Get,
+  Put,
+} from '@nestjs/common';
 import { CreateActivityUseCase } from 'src/modules/activity/useCases/createActivityUseCase';
-import { CreateActivityBody } from './dto/activityBody';
+import { CreateOrEditActivityBody } from './dto/activityBody';
 import { DeleteActivityUseCase } from 'src/modules/activity/useCases/deleteActivityUseCase';
 import { FindActivityByIdUseCase } from 'src/modules/activity/useCases/findActivityById';
 import { FindAllActivitiesUseCase } from 'src/modules/activity/useCases/findAllActivities';
+import { EditActivityUseCase } from 'src/modules/activity/useCases/editActivityUseCase';
 
 @Controller('activity')
 export class ActivityController {
@@ -12,10 +21,11 @@ export class ActivityController {
     private deleteActivityUseCase: DeleteActivityUseCase,
     private findActivityByIdUseCase: FindActivityByIdUseCase,
     private findAllActivitiesUseCase: FindAllActivitiesUseCase,
+    private editActivityUseCase: EditActivityUseCase,
   ) {}
 
   @Post()
-  async createActivity(@Body() body: CreateActivityBody) {
+  async createActivity(@Body() body: CreateOrEditActivityBody) {
     const { name, description } = body;
 
     await this.createActivityUseCase.execute({
@@ -38,6 +48,21 @@ export class ActivityController {
     const AllActivities = await this.findAllActivitiesUseCase.execute();
 
     return AllActivities;
+  }
+
+  @Put(':id')
+  async editActivity(
+    @Param('id') activity_id: string,
+    @Body() body: CreateOrEditActivityBody,
+  ) {
+    const { description, name } = body;
+    const activity = await this.editActivityUseCase.execute({
+      activity_id,
+      description,
+      name,
+    });
+
+    return activity;
   }
 
   @Delete(':id')

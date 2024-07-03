@@ -5,6 +5,7 @@ import { CreateActivityUseCase } from 'src/modules/activity/useCases/createActiv
 import { DeleteActivityUseCase } from 'src/modules/activity/useCases/deleteActivityUseCase';
 import { FindActivityByIdUseCase } from 'src/modules/activity/useCases/findActivityById';
 import { FindAllActivitiesUseCase } from 'src/modules/activity/useCases/findAllActivities';
+import { EditActivityUseCase } from 'src/modules/activity/useCases/editActivityUseCase';
 
 @Module({
   imports: [DatabaseModule],
@@ -14,6 +15,7 @@ import { FindAllActivitiesUseCase } from 'src/modules/activity/useCases/findAllA
     DeleteActivityUseCase,
     FindActivityByIdUseCase,
     FindAllActivitiesUseCase,
+    EditActivityUseCase,
   ],
 })
 export class ActivityModule {}
