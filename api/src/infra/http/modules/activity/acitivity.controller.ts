@@ -7,12 +7,12 @@ import {
   Get,
   Put,
 } from '@nestjs/common';
-import { CreateActivityUseCase } from 'src/modules/activity/useCases/createActivityUseCase';
+import { CreateActivityUseCase } from '../../../../modules/activity/useCases/createActivityUseCase';
 import { CreateOrEditActivityBody } from './dto/activityBody';
-import { DeleteActivityUseCase } from 'src/modules/activity/useCases/deleteActivityUseCase';
-import { FindActivityByIdUseCase } from 'src/modules/activity/useCases/findActivityById';
-import { FindAllActivitiesUseCase } from 'src/modules/activity/useCases/findAllActivities';
-import { EditActivityUseCase } from 'src/modules/activity/useCases/editActivityUseCase';
+import { DeleteActivityUseCase } from './../../../../modules/activity/useCases/deleteActivityUseCase';
+import { FindActivityByIdUseCase } from './../../../../modules/activity/useCases/findActivityById';
+import { FindAllActivitiesUseCase } from './../../../../modules/activity/useCases/findAllActivities';
+import { EditActivityUseCase } from './../../../../modules/activity/useCases/editActivityUseCase';
 
 @Controller('activity')
 export class ActivityController {
