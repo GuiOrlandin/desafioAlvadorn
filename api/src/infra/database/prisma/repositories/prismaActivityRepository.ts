@@ -4,6 +4,7 @@ import { ActivityRepository } from 'src/modules/activity/repositories/activityRe
 import { PrismaService } from '../prisma.service';
 import { ActivityAlreadyCreatedException } from 'src/modules/activity/exceptions/activityAlreadyCreated';
 import { PrismaActivityMapper } from '../mappers/prismaActivityMapper';
+import { ActivityNotFoundException } from 'src/modules/activity/exceptions/activityNotFound';
 
 @Injectable()
 export class PrismaActivityRepository implements ActivityRepository {
@@ -26,12 +27,29 @@ export class PrismaActivityRepository implements ActivityRepository {
       data: ActivityRaw,
     });
   }
-  findById(id: string): Promise<Activity> {
-    throw new Error('Method not implemented.');
+
+  async findById(id: string): Promise<Activity> {
+    const activity = await this.prisma.activity.findFirst({
+      where: {
+        id,
+      },
+    });
+
+    if (!activity) {
+      throw new ActivityNotFoundException();
+    }
+
+    return PrismaActivityMapper.toDomainActivity(activity);
   }
-  delete(id: string): Promise<void> {
-    throw new Error('Method not implemented.');
+
+  async delete(id: string): Promise<void> {
+    await this.prisma.activity.delete({
+      where: {
+        id: id,
+      },
+    });
   }
+
   findAllActivity(): Promise<Activity[]> {
     throw new Error('Method not implemented.');
   }
