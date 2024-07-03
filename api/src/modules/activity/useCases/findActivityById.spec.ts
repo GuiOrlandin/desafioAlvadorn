@@ -2,41 +2,40 @@ import { ActivityNotFoundException } from '../exceptions/activityNotFound';
 import { ActivityRepositoryInMemory } from '../repositories/activityRepositoryInMemory';
 import { CreateActivityUseCase } from './createActivityUseCase';
 import { EditActivityUseCase } from './editActivityUseCase';
+import { FindActivityByIdUseCase } from './findActivityById';
 
-let editActivityUseCase: EditActivityUseCase;
+let findActivityByIdUseCase: FindActivityByIdUseCase;
 let activityRepositoryInMemory: ActivityRepositoryInMemory;
 let createActivityUseCase: CreateActivityUseCase;
 
-describe('Edit activity', () => {
+describe('Find activity by id', () => {
   beforeEach(() => {
     activityRepositoryInMemory = new ActivityRepositoryInMemory();
-    editActivityUseCase = new EditActivityUseCase(activityRepositoryInMemory);
     createActivityUseCase = new CreateActivityUseCase(
+      activityRepositoryInMemory,
+    );
+    findActivityByIdUseCase = new FindActivityByIdUseCase(
       activityRepositoryInMemory,
     );
   });
 
-  it('Should be able to edit a activity', async () => {
+  it('Should be able to find a activity by id', async () => {
     const activity = await createActivityUseCase.execute({
       name: 'andar de bicicleta',
       description: 'andar de bicicleta no parque',
     });
 
-    const activityEdited = await editActivityUseCase.execute({
+    const activityEdited = await findActivityByIdUseCase.execute({
       activity_id: activity.id,
-      name: 'Caminhar no parque',
-      description: 'andar aos sábados no parque',
     });
 
-    expect(activityRepositoryInMemory.activities[0]).toEqual(activityEdited);
+    expect(activityEdited).toEqual(activity);
   });
 
-  it('Should not be able to edit a activity with a wrong activity id', async () => {
+  it('Should not be able to find a activity by id with a wrong activity id', async () => {
     await expect(
-      editActivityUseCase.execute({
+      findActivityByIdUseCase.execute({
         activity_id: 'activity.id',
-        name: 'Caminhar no parque',
-        description: 'andar aos sábados no parque',
       }),
     ).rejects.toThrow(ActivityNotFoundException);
   });
