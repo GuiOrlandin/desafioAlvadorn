@@ -66,7 +66,7 @@ export class ActivityController {
   }
 
   @Delete(':id')
-  async deleteLove(@Param('id') activity_id: string) {
+  async deleteActivity(@Param('id') activity_id: string) {
     await this.deleteActivityUseCase.execute({
       activity_id,
     });

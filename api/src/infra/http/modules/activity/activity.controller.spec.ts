@@ -115,7 +115,7 @@ describe('ActivityController', () => {
 
   it('should delete an activity', async () => {
     const id = '1';
-    await controller.deleteLove(id);
+    await controller.deleteActivity(id);
     expect(deleteActivityUseCase.execute).toHaveBeenCalledWith({
       activity_id: id,
     });
