@@ -2,7 +2,7 @@ import { Injectable } from '@nestjs/common';
 import { ActivityRepository } from '../repositories/activityRepository';
 import { ActivityNotFoundException } from '../exceptions/activityNotFound';
 
-interface DeletePostRequest {
+interface DeleteActivityRequest {
   activity_id: string;
 }
 
@@ -10,7 +10,7 @@ interface DeletePostRequest {
 export class DeleteActivityUseCase {
   constructor(private activityRepository: ActivityRepository) {}
 
-  async execute({ activity_id }: DeletePostRequest) {
+  async execute({ activity_id }: DeleteActivityRequest) {
     const activity = await this.activityRepository.findById(activity_id);
 
     if (!activity) {

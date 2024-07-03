@@ -1,4 +1,5 @@
 import { Activity } from '../entities/activity';
+import { ActivityNotFoundException } from '../exceptions/activityNotFound';
 import { ActivityRepository } from './activityRepository';
 
 export class ActivityRepositoryInMemory implements ActivityRepository {
@@ -32,6 +33,10 @@ export class ActivityRepositoryInMemory implements ActivityRepository {
     const activityIndex = this.activities.findIndex(
       (currentActivity) => currentActivity.id === activity.id,
     );
+
+    if (activityIndex === -1) {
+      throw new ActivityNotFoundException();
+    }
 
     if (activityIndex >= 0) {
       this.activities[activityIndex] = activity;
