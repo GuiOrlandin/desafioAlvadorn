@@ -1,7 +1,7 @@
 import { randomUUID } from 'crypto';
 
 export interface ActivitySchema {
-  description: string;
+  description?: string;
   name: string;
   id?: string;
   created_at?: Date;
@@ -15,6 +15,7 @@ export class Activity {
       ...props,
       created_at: props.created_at || new Date(),
       id: props.id || randomUUID(),
+      description: props.description || '',
     };
   }
 

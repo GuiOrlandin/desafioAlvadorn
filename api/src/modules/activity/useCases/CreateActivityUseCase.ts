@@ -3,7 +3,7 @@ import { Activity } from '../entities/activity';
 import { ActivityRepository } from '../repositories/activityRepository';
 
 interface CreatedActivityRequest {
-  description: string;
+  description?: string;
   name: string;
 }
 
