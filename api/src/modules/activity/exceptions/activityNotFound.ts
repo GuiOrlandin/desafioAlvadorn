@@ -4,7 +4,7 @@ import { AppException } from '../../../exceptions/appExecption';
 export class ActivityNotFoundException extends AppException {
   constructor() {
     super({
-      message: 'Activity não encontrado',
+      message: 'Nenhuma actividade foi encontrada',
       status: HttpStatus.NOT_FOUND,
     });
   }
