@@ -1,3 +1,4 @@
+import { ActivityNotFoundException } from '../exceptions/activityNotFound';
 import { ActivityRepositoryInMemory } from '../repositories/activityRepositoryInMemory';
 import { CreateActivityUseCase } from './createActivityUseCase';
 import { DeleteActivityUseCase } from './deleteActivityUseCase';
@@ -28,5 +29,13 @@ describe('Delete activity', () => {
     });
 
     expect(activityRepositoryInMemory.activities).toEqual([]);
+  });
+
+  it('should not be able do delete activity if activity id is not the correct', async () => {
+    await expect(
+      deleteActivityUseCase.execute({
+        activity_id: 'wrong id',
+      }),
+    ).rejects.toThrow(ActivityNotFoundException);
   });
 });
