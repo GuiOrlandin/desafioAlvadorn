@@ -15,11 +15,7 @@ export interface ActivityResponse {
 }
 
 export default function Home() {
-  const {
-    data: activities,
-    refetch,
-    isLoading,
-  } = useQuery<ActivityResponse[]>({
+  const { data: activities, isLoading } = useQuery<ActivityResponse[]>({
     queryKey: ["posts-info"],
 
     queryFn: async () => {

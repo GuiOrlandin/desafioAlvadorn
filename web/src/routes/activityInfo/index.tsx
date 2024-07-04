@@ -7,7 +7,6 @@ import {
   Content,
   DeleteButtonContainer,
   DialogDeleteCommentContainer,
-  DialogDeleteTriggerButton,
   DialogTitle,
   DialogTrigger,
   EditAndDeleteButtonContainer,
@@ -33,12 +32,8 @@ export default function ActivityInfo() {
   const { activityId } = useParams();
   const { mutate, isSuccess } = useDeleteActivityMutate();
 
-  const {
-    data: activity,
-    refetch,
-    isLoading,
-  } = useQuery<ActivityResponse>({
-    queryKey: ["posts-info"],
+  const { data: activity, isLoading } = useQuery<ActivityResponse>({
+    queryKey: ["activity-info"],
 
     queryFn: async () => {
       return axios
@@ -51,8 +46,8 @@ export default function ActivityInfo() {
     navigate(`/editActivity/${activityId}`);
   }
 
-  function handleDeleteActivity(postId: string) {
-    mutate(postId);
+  function handleDeleteActivity(activityId: string) {
+    mutate(activityId);
   }
 
   useEffect(() => {

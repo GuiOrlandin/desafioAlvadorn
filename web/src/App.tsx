@@ -4,6 +4,7 @@ import { queryClient } from "./lib/react-query";
 import { QueryClientProvider } from "@tanstack/react-query";
 import { GlobalStyle } from "./styles/global";
 import ActivityInfo from "./routes/activityInfo";
+import EditActivity from "./routes/editActivity";
 
 export function App() {
   const router = createBrowserRouter([
@@ -14,6 +15,10 @@ export function App() {
     {
       path: "/activityInfo/:activityId",
       element: <ActivityInfo />,
+    },
+    {
+      path: "/editActivity/:activityId",
+      element: <EditActivity />,
     },
   ]);
 
