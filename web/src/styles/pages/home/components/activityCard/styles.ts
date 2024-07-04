@@ -10,12 +10,13 @@ export const ActivityCardContainer = styled.div`
   width: 32rem;
 
   h1 {
-    font-size: 2rem;
+    font-size: 1.4rem;
     color: #d9d9d9;
   }
   p {
     font-size: 0.8rem;
-    color: #d4d4d4;
+    color: #A4A0A0;
+    margin-top: 0.3rem;
   }
 `;
 
