@@ -11,7 +11,7 @@ async function postData(data: ActivityRegisterDetails) {
   await axios.post("http://localhost:3333/activity", data);
 }
 
-export function useActivityRegisterMutate(): UseMutationResult<
+export function useCreateActivityMutate(): UseMutationResult<
   unknown,
   unknown,
   ActivityRegisterDetails,

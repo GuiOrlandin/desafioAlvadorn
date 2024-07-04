@@ -7,30 +7,33 @@ import {
 } from "../../../../styles/pages/home/components/topBar/styles";
 import CreateActivityDialog from "../createActivityDialog";
 
+import { useNavigate } from "react-router-dom";
+
 interface TopBarProps {
   page: string;
 }
 
 export default function TopBar({ page }: TopBarProps) {
+  const navigate = useNavigate();
   return (
     <TopBarContainer>
       {page === "home" ? (
         <ButtonsOnBarContainer>
           <Dialog.Root>
             <Dialog.Trigger asChild>
-              <ButtonOnBarContainer>Criar</ButtonOnBarContainer>
+              <ButtonOnBarContainer>Criar Atividade</ButtonOnBarContainer>
             </Dialog.Trigger>
             <CreateActivityDialog />
           </Dialog.Root>
         </ButtonsOnBarContainer>
       ) : (
         <ButtonsOnBarContainer>
-          <RedirectButtonsOnBarContainer>
-            <a href="/">Home</a>
+          <RedirectButtonsOnBarContainer onClick={() => navigate("/")}>
+            Home
           </RedirectButtonsOnBarContainer>
           <Dialog.Root>
             <Dialog.Trigger asChild>
-              <ButtonOnBarContainer>Criar</ButtonOnBarContainer>
+              <ButtonOnBarContainer>Criar Atividade</ButtonOnBarContainer>
             </Dialog.Trigger>
             <CreateActivityDialog />
           </Dialog.Root>

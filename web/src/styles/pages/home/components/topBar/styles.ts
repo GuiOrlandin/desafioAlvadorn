@@ -31,16 +31,12 @@ export const ButtonOnBarContainer = styled.button`
 export const RedirectButtonsOnBarContainer = styled.div`
   display: flex;
   gap: 1.8rem;
+  color: #f5f5f5;
+  border-bottom: 1px solid transparent;
 
-  a {
-    height: 1.5rem;
-    color: #f5f5f5;
-    font-weight: 700;
-    text-decoration: none;
-
-    &:hover {
-      border-bottom: 1px solid #f5f5f5;
-    }
+  &:hover {
+    cursor: pointer;
+    border-bottom: 1px solid #f5f5f5;
   }
 `;
 
@@ -57,7 +53,7 @@ export const Content = styled(Dialog.Content)`
   min-width: 32rem;
   border-radius: 6px;
   padding: 2.5rem 3rem;
-  background: #f0edf6;
+  background: #2f1b7e;
 
   position: fixed;
   top: 50%;
@@ -69,11 +65,15 @@ export const CreateActivityDialogContainer = styled.div`
   display: flex;
   flex-direction: column;
 `;
-
-
+export const NameAndDescriptionContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+`;
 
 export const Close = styled(Dialog.Close)`
   border: none;
-  color: #160548;
+  background: none;
+  color: #f5f5f5;
   margin-left: 30rem;
+  font-size: 1.2rem;
 `;

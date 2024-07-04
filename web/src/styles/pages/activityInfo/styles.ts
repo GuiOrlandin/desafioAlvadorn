@@ -23,7 +23,9 @@ export const ActivityInfoContentContainer = styled.div`
 export const NameAndDescriptionContainer = styled.div`
   display: flex;
   flex-direction: column;
+  gap: 1rem;
   background: #2f1b7e;
+  margin-bottom: 1rem;
 
   p {
     margin-top: 1rem;
