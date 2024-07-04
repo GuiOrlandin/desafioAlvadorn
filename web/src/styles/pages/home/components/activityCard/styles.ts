@@ -15,8 +15,12 @@ export const ActivityCardContainer = styled.div`
   }
   p {
     font-size: 0.8rem;
-    color: #A4A0A0;
+    color: #a4a0a0;
     margin-top: 0.3rem;
+  }
+
+  &:hover {
+    cursor: pointer;
   }
 `;
 

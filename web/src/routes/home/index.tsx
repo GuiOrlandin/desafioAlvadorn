@@ -3,6 +3,7 @@ import {
   ActivityCardsContainer,
   HomeContainer,
 } from "../../styles/pages/home/styles";
+
 import ActivityCard from "./components/ActivityCard";
 import TopBar from "./components/topBar";
 import axios from "axios";
@@ -39,11 +40,7 @@ export default function Home() {
           <TopBar page="home" />
           <ActivityCardsContainer>
             {activities?.map((activity) => (
-              <ActivityCard
-                key={activity.id}
-                activity={activity}
-                isLoading={isLoading}
-              />
+              <ActivityCard key={activity.id} activity={activity} />
             ))}
           </ActivityCardsContainer>
         </>

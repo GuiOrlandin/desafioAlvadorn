@@ -3,7 +3,7 @@ import {
   NameAndEditButtonActivityContainer,
 } from "../../../../styles/pages/home/components/activityCard/styles";
 
-import { CiEdit } from "react-icons/ci";
+import { useNavigate } from "react-router-dom";
 
 export interface Activity {
   description?: string;
@@ -12,23 +12,19 @@ export interface Activity {
 }
 interface ActivityCardProps {
   activity: Activity;
-  isLoading?: boolean;
 }
 
-export default function ActivityCard({
-  activity,
-  isLoading,
-}: ActivityCardProps) {
+export default function ActivityCard({ activity }: ActivityCardProps) {
+  const navigate = useNavigate();
+
   function handleEditClick() {
-    window.location.href = `/activityUpdate/${activity.id}`;
+    navigate(`/activityInfo/${activity.id}`);
   }
 
   return (
-    <ActivityCardContainer>
+    <ActivityCardContainer onClick={() => handleEditClick()}>
       <NameAndEditButtonActivityContainer>
         <h1>{activity.name}</h1>
-
-        <CiEdit size={20} />
       </NameAndEditButtonActivityContainer>
       <p>{activity.description}</p>
     </ActivityCardContainer>

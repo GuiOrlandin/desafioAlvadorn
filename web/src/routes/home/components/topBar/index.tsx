@@ -14,7 +14,16 @@ interface TopBarProps {
 export default function TopBar({ page }: TopBarProps) {
   return (
     <TopBarContainer>
-      {page === "home" && (
+      {page === "home" ? (
+        <ButtonsOnBarContainer>
+          <Dialog.Root>
+            <Dialog.Trigger asChild>
+              <ButtonOnBarContainer>Criar</ButtonOnBarContainer>
+            </Dialog.Trigger>
+            <CreateActivityDialog />
+          </Dialog.Root>
+        </ButtonsOnBarContainer>
+      ) : (
         <ButtonsOnBarContainer>
           <RedirectButtonsOnBarContainer>
             <a href="/news">Home</a>
