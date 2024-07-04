@@ -39,9 +39,10 @@ export default function Home() {
         <>
           <TopBar page="home" />
           <ActivityCardsContainer>
-            {activities?.map((activity) => (
-              <ActivityCard key={activity.id} activity={activity} />
-            ))}
+            {Array.isArray(activities) &&
+              activities?.map((activity) => (
+                <ActivityCard key={activity.id} activity={activity} />
+              ))}
           </ActivityCardsContainer>
         </>
       )}

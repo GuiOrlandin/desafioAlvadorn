@@ -7,7 +7,7 @@ export interface ActivityRegisterDetails {
   id: string;
 }
 
-async function ActivityData(data: ActivityRegisterDetails) {
+async function postData(data: ActivityRegisterDetails) {
   await axios.post("http://localhost:3333/activity", data);
 }
 
@@ -18,7 +18,7 @@ export function useActivityRegisterMutate(): UseMutationResult<
   unknown
 > {
   const mutate = useMutation({
-    mutationFn: ActivityData,
+    mutationFn: postData,
   });
   return mutate;
 }

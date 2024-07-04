@@ -26,7 +26,7 @@ export default function TopBar({ page }: TopBarProps) {
       ) : (
         <ButtonsOnBarContainer>
           <RedirectButtonsOnBarContainer>
-            <a href="/news">Home</a>
+            <a href="/">Home</a>
           </RedirectButtonsOnBarContainer>
           <Dialog.Root>
             <Dialog.Trigger asChild>

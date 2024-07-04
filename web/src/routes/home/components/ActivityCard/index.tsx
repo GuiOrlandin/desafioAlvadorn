@@ -17,12 +17,12 @@ interface ActivityCardProps {
 export default function ActivityCard({ activity }: ActivityCardProps) {
   const navigate = useNavigate();
 
-  function handleEditClick() {
+  function handleActivityInfo() {
     navigate(`/activityInfo/${activity.id}`);
   }
 
   return (
-    <ActivityCardContainer onClick={() => handleEditClick()}>
+    <ActivityCardContainer onClick={() => handleActivityInfo()}>
       <NameAndEditButtonActivityContainer>
         <h1>{activity.name}</h1>
       </NameAndEditButtonActivityContainer>
