@@ -96,9 +96,9 @@ Processo de criar uma atividade.
 <img src="web/src/assets/criandoumaatividade.png">
 
 Página principal com todas as atividades sendo exibidas
-<img src="web/src/src/assets/listandotodasasatividades.png">
+<img src="web/src/src/assets/todasasatividades.png">
 
-Página mostrando as características de uma atividade específica.
+Página mostrando as características de uma atividade específica
 <img src="web/src/assets/informacoesdaatividade.png">
 
 Processo de atualização de uma atividade, em que os dados anteriores são exibidos nos inputes ao entrar na página.
