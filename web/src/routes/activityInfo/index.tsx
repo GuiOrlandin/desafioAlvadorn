@@ -73,12 +73,13 @@ export default function ActivityInfo() {
             <EditAndDeleteButtonContainer>
               <Dialog.Root>
                 <DialogTrigger asChild>
-                  <DeleteButtonContainer>Deletar</DeleteButtonContainer>
+                  <DeleteButtonContainer
+                  >Deletar</DeleteButtonContainer>
                 </DialogTrigger>
                 <Dialog.Portal>
                   <Overlay />
-                  <Content>
-                    <DialogTitle>Você deseja deletar o comentário?</DialogTitle>
+                  <Content >
+                    <DialogTitle >Você deseja deletar o comentário?</DialogTitle>
                     <DialogDeleteCommentContainer>
                       <ButtonsOfDialogContainer>
                         <ConfirmButton
