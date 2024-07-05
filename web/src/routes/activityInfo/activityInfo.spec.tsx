@@ -17,6 +17,16 @@ jest.mock('react-router-dom', () => ({
   useNavigate: () => mockedUsedNavigate,
 }));
 
+jest.mock('@radix-ui/react-dialog', () => ({
+  Root: ({ children }: { children: React.ReactNode }) => <div>{children}</div>,
+  Trigger: ({ children }: { children: React.ReactNode }) => <div>{children}</div>,
+  Portal: ({ children }: { children: React.ReactNode }) => <div>{children}</div>,
+  Title: ({ children }: { children: React.ReactNode }) => <div>{children}</div>,
+  Close: ({ children }: { children: React.ReactNode }) => <div>{children}</div>,
+  Content: ({ children }: { children: React.ReactNode }) => <div>{children}</div>,
+  Overlay: ({ children }: { children: React.ReactNode }) => <div>{children}</div>,
+}));
+
 
 const mockActivity = {
   id: '1',

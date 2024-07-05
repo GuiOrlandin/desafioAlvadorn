@@ -80,7 +80,7 @@ export default function ActivityInfo() {
                   <Overlay />
                   <Content >
                     <DialogTitle >Você deseja deletar o comentário?</DialogTitle>
-                    <DialogDeleteCommentContainer>
+                    <DialogDeleteCommentContainer >
                       <ButtonsOfDialogContainer>
                         <ConfirmButton
                           onClick={() => handleDeleteActivity(activity!.id)}

@@ -93,7 +93,7 @@ export default function EditActivity() {
             />
           </NameInputContainer>
           <DescriptionInputContainer>
-            <h2>Description</h2>
+            <h2>Descrição</h2>
             <input
               type="text"
               value={detailsForActivityToUpdate.description}
