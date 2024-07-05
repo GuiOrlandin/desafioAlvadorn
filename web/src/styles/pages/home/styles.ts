@@ -18,4 +18,8 @@ export const ActivityCardsContainer = styled.div`
   gap: 0.5rem;
   flex-direction: column;
   margin-top: 3rem;
+
+  p {
+    font-size: 2rem;
+  }
 `;

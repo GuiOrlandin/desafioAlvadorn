@@ -27,20 +27,23 @@ export default function Home() {
 
   return (
     <HomeContainer>
+      <TopBar page="home" />
+
       {isLoading ? (
         <>
           <p>Carregando..</p>
         </>
       ) : (
-        <>
-          <TopBar page="home" />
-          <ActivityCardsContainer>
-            {Array.isArray(activities) &&
-              activities?.map((activity) => (
-                <ActivityCard key={activity.id} activity={activity} />
-              ))}
-          </ActivityCardsContainer>
-        </>
+        <ActivityCardsContainer>
+          {activities && activities?.length > 0 ? (
+            Array.isArray(activities) &&
+            activities?.map((activity) => (
+              <ActivityCard key={activity.id} activity={activity} />
+            ))
+          ) : (
+            <p>Não contém atividades cadastradas.</p>
+          )}
+        </ActivityCardsContainer>
       )}
     </HomeContainer>
   );
