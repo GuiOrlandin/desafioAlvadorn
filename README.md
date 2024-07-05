@@ -61,7 +61,7 @@ npx prisma migrate dev
 npm run start:dev
 ```
 
-### Rode os testes da aplicação
+### Rode os testes do back-end
 
 ```sh
 npm run test
@@ -75,23 +75,34 @@ npm run test
 npm i
 ```
 
-### Inicie a aplicação
+### Inicie a aplicação no front-end
 
 ```sh
 npm run dev
 ```
 
+### Rode os testes do front-end
+
+```sh
+npm run test
+```
+
 ## Demo
 
-Tela principal sem nenhuma atividade listado.
+Tela principal sem nenhuma atividade listada.
 <img src="web/src/assets/telaprincipal.png">
+
 Processo de criar uma atividade.
 <img src="web/src/assets/criandoumaatividade.png">
-Página principal com todos as atividades sendo exibidas
+
+Página principal com todas as atividades sendo exibidas
 <img src="web/src/src/assets/listandotodasasatividades.png">
+
 Página mostrando as características de uma atividade específica.
-<img src="web/src/assets/caracteristicasdaatividade.png">
+<img src="web/src/assets/informacoesdaatividade.png">
+
 Processo de atualização de uma atividade, em que os dados anteriores são exibidos nos inputes ao entrar na página.
 <img src="web/src/assets/editandoumaatividade.png">
+
 Dialog que é aberto quando solicita-se a exclusão de uma atividade.
 <img src="web/src/assets/deletandoumaatividade.png">
